@@ -1,0 +1,3 @@
+include ':VPLine'
+include ':app'
+rootProject.name = "VPLineGraph"
