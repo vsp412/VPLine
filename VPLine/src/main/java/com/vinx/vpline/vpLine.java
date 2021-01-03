@@ -35,36 +35,36 @@ public class vpLine extends View {
     private  Paint notchpaint=new Paint();
 
     //Screen attributes
-    private float sw,sh;
+    private static float sw,sh;
 
     //Graph attributes
-    private PointF p1,p2,pO;
-    private float p1x_,p1y_,p2x_,p2y_;
-    private int gcol;
-    private int lineWidth;
-    private boolean arrows;
+    private static PointF p1,p2,pO;
+    private static float p1x_,p1y_,p2x_,p2y_;
+    private static int gcol;
+    private static int lineWidth;
+    private static boolean arrows;
 
 
     //X and Y axis arrays and lines
-    private float[] inpx,inpy, ix, iy;
-    private PointF[] pts;
-    private int lcol;
-    private int lineWidthPlotLines;
-    private int lineType;
-    private float occX,occY;
+    private static float[] inpx,inpy, ix, iy;
+    private static PointF[] pts;
+    private static int lcol;
+    private static int lineWidthPlotLines;
+    private static int lineType;
+    private static float occX,occY;
 
     //Point attributes
-    private int pcol;
-    private float pradius;
-    private boolean FilledBool;
-    private int circBordThickness;
+    private static int pcol;
+    private static float pradius;
+    private static boolean FilledBool;
+    private static int circBordThickness;
 
     //Labelling attributes
-    private  float base_Y,base_X,lab_dist_x,lab_dist_y,x_lab_size,y_lab_size;
-    private boolean xshow,yshow,notches;
-    private String xtit, ytit;
-    private int x_ratio,y_ratio;
-    private int labcol,labwidth,titcolor;
+    private  static float base_Y,base_X,lab_dist_x,lab_dist_y,x_lab_size,y_lab_size;
+    private static boolean xshow,yshow,notches;
+    private static String xtit, ytit;
+    private static int x_ratio,y_ratio;
+    private static int labcol,labwidth,titcolor;
 
 
     public vpLine(Context context) {
@@ -226,7 +226,7 @@ public class vpLine extends View {
     }
 
 
-    public void setGraphAttrib(int screenHeight, int screenWidth){
+    public static void setGraphAttrib(int screenHeight, int screenWidth){
         p1=new PointF(0.2f*screenWidth,0.15f*screenHeight);
         p2=new PointF(0.85f*screenWidth,0.8f*screenHeight);
         pO=new PointF(0.2f*screenWidth,0.8f*screenHeight);
@@ -245,7 +245,7 @@ public class vpLine extends View {
         lineWidth=10;
     }
 
-    public void setGraphAttrib(int screenHeight, int screenWidth, float p1x, float p1y, float p2x, float p2y, int color, int lineThickness, boolean axis_arrows){
+    public static void setGraphAttrib(int screenHeight, int screenWidth, float p1x, float p1y, float p2x, float p2y, int color, int lineThickness, boolean axis_arrows){
 
         p1=new PointF(p1x*screenWidth,p1y*screenHeight);
         p2=new PointF(p2x*screenWidth,p2y*screenHeight);
@@ -266,7 +266,7 @@ public class vpLine extends View {
 
     }
 
-    public void setXY(float[] xval,float[] yval) {
+    public static void setXY(float[] xval,float[] yval) {
 
         ix=xval;
         iy=yval;
@@ -309,7 +309,7 @@ public class vpLine extends View {
 
     }
 
-    public void setXY(float[] xval,float[] yval, int lineStyle, int color, int lineThickness, float occupiedProportionOfX_Axis, float occupiedProportionOfY_Axis) {
+    public static void setXY(float[] xval,float[] yval, int lineStyle, int color, int lineThickness, float occupiedProportionOfX_Axis, float occupiedProportionOfY_Axis) {
 
         ix=xval;
         iy=yval;
@@ -354,21 +354,21 @@ public class vpLine extends View {
 
     }
 
-    public void setPointLooks(){
+    public static void setPointLooks(){
         FilledBool=true;
         pcol=Color.RED;
         pradius=5.0f;
         circBordThickness=7;
     }
 
-    public void setPointLooks(boolean isFilled, int color, float radius, int borderThickness){
+    public static void setPointLooks(boolean isFilled, int color, float radius, int borderThickness){
         FilledBool=isFilled;
         pcol=color;
         pradius=radius;
         circBordThickness=borderThickness;
     }
 
-    public void setLabels(float[] xval,float[] yval){
+    public static void setLabels(float[] xval,float[] yval){
 
         inpx=xval;
         inpy=yval;
@@ -388,7 +388,7 @@ public class vpLine extends View {
         labwidth=15;
 
     }
-    public void setLabels(boolean x_axis_show, boolean y_axis_show, float[] xval,float[] yval, float label_distance_from_x_axis, float label_distance_from_y_axis, float x_label_font_size, float y_label_font_size, int x_axis_labels_spread,  int y_axis_labels_spread, boolean notches_on_axes, String x_title, String y_title, int labels_color, int axes_title_color, int font_boldness){
+    public static void setLabels(boolean x_axis_show, boolean y_axis_show, float[] xval,float[] yval, float label_distance_from_x_axis, float label_distance_from_y_axis, float x_label_font_size, float y_label_font_size, int x_axis_labels_spread,  int y_axis_labels_spread, boolean notches_on_axes, String x_title, String y_title, int labels_color, int axes_title_color, int font_boldness){
         xshow=x_axis_show;
         yshow=y_axis_show;
         inpx=xval;
@@ -409,7 +409,7 @@ public class vpLine extends View {
 
     }
 
-    public float minValue(float[] array){
+    public static float minValue(float[] array){
         List<Float> list = new ArrayList<Float>();
         for (float v : array) {
             list.add(v);
@@ -417,7 +417,7 @@ public class vpLine extends View {
         return Collections.min(list);
     }
 
-    public float maxValue(float[] array){
+    public static float maxValue(float[] array){
         List<Float> list = new ArrayList<Float>();
         for (float v : array) {
             list.add(v);
@@ -425,7 +425,7 @@ public class vpLine extends View {
         return Collections.max(list);
     }
 
-    public float diffValue(float[] array){
+    public static float diffValue(float[] array){
         List<Float> list = new ArrayList<Float>();
         for (float v : array) {
             list.add(v);
