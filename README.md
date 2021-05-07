@@ -41,7 +41,7 @@ Then pass all the graph properties you want to the static methods as shown below
 
 Then finally, call the non-static 'draw' method as shown:
   
-     `vp.draw();`
+     ```vp.draw();```
      
 Contact me on vsp4991@gmail.com for any questions/issues.     
 
