@@ -3,6 +3,7 @@ A highly customizable Java library to draw line graphs. I had first built a grap
 
 Instructions to use:
 In your project's build.gradle file, put this:
+
 `allprojects {
 		repositories {
 			...
